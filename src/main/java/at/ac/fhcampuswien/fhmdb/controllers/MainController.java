@@ -54,14 +54,13 @@ public class MainController {
     private void toggleMenuDrawer(){
         toggleHamburgerTransitionState();
 
+        TranslateTransition translateTransition=new TranslateTransition(Duration.seconds(0.5), drawer);
         if(isMenuCollapsed) {
-            TranslateTransition translateTransition=new TranslateTransition(Duration.seconds(0.5), drawer);
             translateTransition.setByX(130);
             translateTransition.play();
             isMenuCollapsed = false;
             drawer.toFront();
         } else {
-            TranslateTransition translateTransition=new TranslateTransition(Duration.seconds(0.5), drawer);
             translateTransition.setByX(-130);
             translateTransition.play();
             isMenuCollapsed = true;
@@ -70,7 +69,9 @@ public class MainController {
     }
 
     public void setContent(String fxmlPath){
+        MyFactory myFactory = MyFactory.getInstance();
         FXMLLoader loader = new FXMLLoader(MainController.class.getResource(fxmlPath));
+        loader.setControllerFactory(myFactory);
         try {
             mainPane.setCenter(loader.load());
         } catch (Exception e) {
