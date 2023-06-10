@@ -5,15 +5,22 @@ import com.j256.ormlite.dao.Dao;
 import java.util.List;
 
 public class WatchlistRepository {
+    private static WatchlistRepository instance;
+    private Dao<WatchlistMovieEntity, Long> dao;
 
-    Dao<WatchlistMovieEntity, Long> dao;
-
-    public WatchlistRepository() throws DataBaseException {
+    private WatchlistRepository() throws DataBaseException {
         try {
             this.dao = DatabaseManager.getInstance().getWatchlistDao();
         } catch (Exception e) {
             throw new DataBaseException(e.getMessage());
         }
+    }
+
+    public static synchronized WatchlistRepository getInstance() throws DataBaseException {
+        if (instance == null) {
+            instance = new WatchlistRepository();
+        }
+        return instance;
     }
 
     public List<WatchlistMovieEntity> readWatchlist() throws DataBaseException {
@@ -24,6 +31,7 @@ public class WatchlistRepository {
             throw new DataBaseException("Error while reading watchlist");
         }
     }
+
     public void addToWatchlist(WatchlistMovieEntity movie) throws DataBaseException {
         try {
             // only add movie if it does not exist yet

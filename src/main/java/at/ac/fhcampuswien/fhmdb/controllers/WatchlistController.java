@@ -31,8 +31,7 @@ public class WatchlistController implements Initializable {
             WatchlistMovieEntity watchlistMovieEntity = (WatchlistMovieEntity) o;
 
             try {
-                WatchlistRepository watchlistRepository = new WatchlistRepository();
-                watchlistRepository.removeFromWatchlist(watchlistMovieEntity);
+                WatchlistRepository.getInstance().removeFromWatchlist(watchlistMovieEntity);
                 observableWatchlist.remove(watchlistMovieEntity);
             } catch (DataBaseException e) {
                 UserDialog dialog = new UserDialog("Database Error", "Could not remove movie from watchlist");
@@ -47,7 +46,6 @@ public class WatchlistController implements Initializable {
 
         List<WatchlistMovieEntity> watchlist = new ArrayList<>();
         try {
-            watchlistRepository = new WatchlistRepository();
             watchlist = getWatchlist();
             observableWatchlist.addAll(getWatchlist());
             watchlistView.setItems(observableWatchlist);
@@ -68,6 +66,6 @@ public class WatchlistController implements Initializable {
     }
 
     private List<WatchlistMovieEntity> getWatchlist() throws DataBaseException {
-        return watchlistRepository.readWatchlist();
+        return WatchlistRepository.getInstance().readWatchlist();
     }
 }
