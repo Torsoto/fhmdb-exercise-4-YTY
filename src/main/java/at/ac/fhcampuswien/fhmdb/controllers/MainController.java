@@ -30,6 +30,10 @@ public class MainController {
     private HamburgerBasicCloseTransition transition;
 
     public void initialize() {
+        MyFactory myFactory = MyFactory.getInstance();
+        FXMLLoader loader = new FXMLLoader(MainController.class.getResource(UIComponent.HOME.path));
+        loader.setControllerFactory(myFactory);
+
         transition = new HamburgerBasicCloseTransition(hamburgerMenu);
         transition.setRate(-1);
         drawer.toBack();
@@ -39,6 +43,7 @@ public class MainController {
         });
         // start with home view
         navigateToMovielist();
+
     }
 
     private void toggleHamburgerTransitionState(){

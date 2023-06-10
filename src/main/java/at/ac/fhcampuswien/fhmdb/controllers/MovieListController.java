@@ -21,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -54,6 +55,9 @@ public class MovieListController implements Initializable {
     protected ObservableList<Movie> observableMovies = FXCollections.observableArrayList();
 
     protected SortedState sortedState;
+
+    private final MyFactory myFactory = MyFactory.getInstance();
+
 
     private final ClickEventHandler onAddToWatchlistClicked = (clickedItem) -> {
         if (clickedItem instanceof Movie movie) {
