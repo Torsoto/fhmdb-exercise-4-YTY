@@ -9,7 +9,6 @@ import at.ac.fhcampuswien.fhmdb.database.WatchlistRepository;
 import at.ac.fhcampuswien.fhmdb.models.Genre;
 import at.ac.fhcampuswien.fhmdb.models.Movie;
 import at.ac.fhcampuswien.fhmdb.models.SortedState;
-import at.ac.fhcampuswien.fhmdb.observer.ObservableMessages;
 import at.ac.fhcampuswien.fhmdb.observer.Observer;
 import at.ac.fhcampuswien.fhmdb.ui.MovieCell;
 import at.ac.fhcampuswien.fhmdb.ui.UserDialog;
@@ -60,9 +59,6 @@ public class MovieListController implements Initializable, Observer {
 
     protected SortedState sortedState;
 
-    private final MyFactory myFactory = MyFactory.getInstance();
-
-
     private final ClickEventHandler onAddToWatchlistClicked = (clickedItem) -> {
         if (clickedItem instanceof Movie movie) {
             WatchlistMovieEntity watchlistMovieEntity = new WatchlistMovieEntity(
@@ -84,11 +80,11 @@ public class MovieListController implements Initializable, Observer {
         }
     };
     @Override
-    public void update(ObservableMessages messages) {
-        if(messages == ObservableMessages.ADDED){
-            new Alert(Alert.AlertType.INFORMATION, "Movie was successfully added to the Watchlist", ButtonType.OK).show();
-        } else {
-            new Alert(Alert.AlertType.WARNING, "Movie is already in Watchlist!", ButtonType.OK).show();
+    public void update(String message) {
+        if (message.contains("successfully")) {
+            new Alert(Alert.AlertType.INFORMATION, message, ButtonType.OK).show();
+        } else if (message.contains("already")) {
+            new Alert(Alert.AlertType.WARNING, message, ButtonType.OK).show();
         }
     }
 

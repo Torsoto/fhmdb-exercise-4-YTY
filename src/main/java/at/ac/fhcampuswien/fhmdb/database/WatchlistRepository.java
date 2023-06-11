@@ -1,7 +1,6 @@
 package at.ac.fhcampuswien.fhmdb.database;
 
 import at.ac.fhcampuswien.fhmdb.observer.Observable;
-import at.ac.fhcampuswien.fhmdb.observer.ObservableMessages;
 import at.ac.fhcampuswien.fhmdb.observer.Observer;
 import com.j256.ormlite.dao.Dao;
 
@@ -24,7 +23,7 @@ public class WatchlistRepository implements Observable {
     }
 
     @Override
-    public void notifyObservers(ObservableMessages messages) {
+    public void notifyObservers(String messages) {
         for (Observer observer : this.observers) {
             observer.update(messages);
         }
@@ -60,9 +59,9 @@ public class WatchlistRepository implements Observable {
             long count = dao.queryBuilder().where().eq("apiId", movie.getApiId()).countOf();
             if (count == 0) {
                 dao.create(movie);
-                notifyObservers(ObservableMessages.ADDED);
+                notifyObservers("Movie was successfully added to the Watchlist");
             } else {
-                notifyObservers(ObservableMessages.ALREADY_EXISTS);
+                notifyObservers("Movie is already in Watchlist!");
             }
         } catch (Exception e) {
             e.printStackTrace();
