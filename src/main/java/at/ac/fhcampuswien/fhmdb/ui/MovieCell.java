@@ -31,7 +31,7 @@ public class MovieCell extends ListCell<Movie> {
         watchlistBtn.setStyle("-fx-background-color: #00acc1;-fx-text-fill: white");
         title.getStyleClass().add("text-white");
         detail.getStyleClass().add("text-white");
-        genre.getStyleClass().add("text-white");
+        genre.getStyleClass().add("text-genre");
         genre.setStyle("-fx-font-style: italic");
         layout.setBackground(new Background(new BackgroundFill(Color.web("#00535b"), null, null)));
         header.setAlignment(Pos.CENTER_LEFT);
