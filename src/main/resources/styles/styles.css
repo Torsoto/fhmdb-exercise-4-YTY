@@ -1,18 +1,18 @@
 
 .background-yellow {
-    -fx-background-color: #f5c518;
+    -fx-background-color: #00acc1;
 }
 
 .background-black {
-    -fx-background-color: #000000;
+    -fx-background-color: black;
 }
 
 .background-light-black {
-    -fx-background-color: #454545;
+    -fx-background-color: #00acc1;
 }
 
-.text-yellow {
-    -fx-text-fill: #f5c518;
+.text-lite-white {
+    -fx-text-fill: #d5d5d5;
 }
 
 .text-white {

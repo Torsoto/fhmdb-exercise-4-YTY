@@ -22,7 +22,7 @@ public class FhmdbApplication extends Application {
         try{
             Scene scene = new Scene(loader.load(), 890, 620);
             scene.getStylesheets().add(Objects.requireNonNull(FhmdbApplication.class.getResource("/styles/styles.css")).toExternalForm());
-            stage.setTitle("FHMDb!");
+            stage.setTitle("YTY-FHMDb");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

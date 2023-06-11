@@ -25,14 +25,14 @@ public class WatchlistCell extends ListCell<WatchlistMovieEntity> {
     public WatchlistCell(ClickEventHandler removeFromWatchlistClick) {
         super();
         // color scheme
-        detailBtn.setStyle("-fx-background-color: #f5c518;");
+        detailBtn.setStyle("-fx-background-color: #00acc1;-fx-text-fill: white");
         HBox.setMargin(detailBtn, new Insets(0, 10, 0, 10));
-        removeBtn.setStyle("-fx-background-color: #f5c518;");
-        title.getStyleClass().add("text-yellow");
+        removeBtn.setStyle("-fx-background-color: #00acc1;-fx-text-fill: white");
+        title.getStyleClass().add("text-white");
         description.getStyleClass().add("text-white");
         genre.getStyleClass().add("text-white");
         genre.setStyle("-fx-font-style: italic");
-        layout.setBackground(new Background(new BackgroundFill(Color.web("#454545"), null, null)));
+        layout.setBackground(new Background(new BackgroundFill(Color.web("#00535b"), null, null)));
         header.setAlignment(Pos.CENTER_LEFT);
         header.setHgrow(title, Priority.ALWAYS);
         header.setHgrow(detailBtn, Priority.ALWAYS);

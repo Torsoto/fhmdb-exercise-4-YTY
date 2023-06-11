@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXDrawer?>
-<?import com.jfoenix.controls.JFXHamburger?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="331.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.fhmdb.controllers.MainController">
+<AnchorPane prefHeight="331.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.fhmdb.controllers.MainController">
    <children>
       <BorderPane layoutX="76.0" prefHeight="45" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <left>
             <HBox prefHeight="100.0" prefWidth="200.0">
-               <Label style="-fx-background-color: F5C518;" text="FHMDb" BorderPane.alignment="CENTER">
+               <Label style="-fx-background-color: #00acc1; -fx-text-fill: white; -fx-background-radius: 2;" text="YTY-FHMDb" BorderPane.alignment="CENTER">
                   <font>
                      <Font name="Calibri Bold" size="24.0" />
                   </font>
                </Label>
-               <Label styleClass="text-white" stylesheets="@../styles/styles.css" text="Welcome to FHMDb!" />
             </HBox>
          </left>
          <right>
@@ -34,7 +28,7 @@
       <BorderPane fx:id="mainPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
 
       </BorderPane>
-      <JFXDrawer fx:id="drawer" prefWidth="130.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <JFXDrawer fx:id="drawer" prefWidth="130.0" style="-fx-background-radius: 4;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <sidePane>
             <VBox>
                <children>
